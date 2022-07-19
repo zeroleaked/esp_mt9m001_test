@@ -1,0 +1,20 @@
+#define CONFIG_D0           26
+#define CONFIG_D1           25
+#define CONFIG_D2           33
+#define CONFIG_D3           32
+#define CONFIG_D4           35
+#define CONFIG_D5           34
+#define CONFIG_D6           39
+#define CONFIG_D7           36
+#define CONFIG_XCLK         17
+#define CONFIG_PCLK         18
+#define CONFIG_VSYNC        23
+#define CONFIG_HREF         19
+#define CONFIG_SDA          21
+#define CONFIG_SCL          22
+#define CONFIG_RESET        16
+#define CONFIG_PWDN         -1 //power down is not used
+#define CONFIG_XCLK_FREQ    20000000
+#define CONFIG_FB_COUNT     1
+#define CONFIG_FRAME_WIDTH  1280
+#define CONFIG_FRAME_HEIGHT 3
