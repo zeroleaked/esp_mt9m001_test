@@ -1,0 +1,41 @@
+␛[0;32mI (1269) APP_MAIN: HELLO WORLD␛[0m
+␛[0;32mI (1269) gpio: GPIO[23]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 ␛[0m
+V (1279) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1289) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0x40E␛[0m
+D (1299) intr_alloc: Connected src 22 to int 13 (cpu 0)␛[0m
+␛[0;32mI (1299) cam_hal: cam init ok␛[0m
+D (1309) camera: Enabling XCLK output␛[0m
+D (1309) ledc: LEDC_PWM CHANNEL 0|GPIO 17|Duty 0001|Time 0␛[0m
+D (1319) camera: Initializing SSCB␛[0m
+␛[0;32mI (1319) sccb: pin_sda 21 pin_scl 22␛[0m
+V (1319) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1329) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0xE␛[0m
+D (1339) intr_alloc: Connected src 50 to int 17 (cpu 0)␛[0m
+D (1339) camera: Searching for camera address␛[0m
+␛[0;32mI (1359) camera: Detected camera at address=0x5d␛[0m
+␛[0;32mI (1359) camera: Detected MT9M001 camera␛[0m
+D (1359) MT9M001: MT9M001 Attached␛[0m
+␛[0;32mI (1359) camera: Camera PID=0x8431 VER=0x00 MIDL=0x00 MIDH=0x00␛[0m
+D (1369) camera: Doing SW reset of sensor␛[0m
+D (1389) esp32 ll_cam: in_bytes_per_pixel = 1␛[0m
+␛[0;32mI (1389) esp32 ll_cam: node_size: 3072, nodes_per_line: 1, lines_per_node: 8, dma_half_buffer_min:  3072, dma_half_buffer: 12288, lines_per_half_buffer: 32, dma_buffer_size: 24576, image_size: 9216␛[0m
+␛[0;32mI (1399) cam_hal: buffer_size: 24576, half_buffer_size: 12288, node_buffer_size: 3072, node_cnt: 8, total_cnt: 0␛[0m
+␛[0;32mI (1409) cam_hal: Allocating 9216 Byte frame buffer in OnBoard RAM␛[0m
+V (1419) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1419) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0x40E␛[0m
+D (1429) intr_alloc: Connected src 32 to int 18 (cpu 0)␛[0m
+␛[0;32mI (1429) cam_hal: cam config ok␛[0m
+D (1439) camera: Setting frame size to 96x96␛[0m
+D (1449) MT9M001: Reg0x32: 0x0␛[0m
+␛[0;32mI (1449) main: Camera Init Ok␛[0m
+␛[0;32mI (1449) main: Taking picture...␛[0m
+␛[0;33mW (5449) cam_hal: Failed to get the frame on time!␛[0m
+Guru Meditation Error: Core  0 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x400d1230  PS      : 0x00060630  A0      : 0x800ebb7f  A1      : 0x3ffb5e00  
+A2      : 0x3ffb006c  A3      : 0x00000000  A4      : 0x00000001  A5      : 0x00000001  
+A6      : 0x00000000  A7      : 0x00060f23  A8      : 0x800d1230  A9      : 0x3ffb5de0  
+A10     : 0x00001549  A11     : 0x3ffb006c  A12     : 0x3f4001a4  A13     : 0x000005a9  
+A14     : 0x3ffb006c  A15     : 0x00000000  SAR     : 0x00000004  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000004  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xfffffffd 
