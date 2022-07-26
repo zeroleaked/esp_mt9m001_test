@@ -1,6 +1,6 @@
 #define CAM_PIN_PWDN -1
 #define CAM_PIN_RESET -1 //software reset will be performed
-#define CAM_PIN_XCLK 17
+#define CAM_PIN_XCLK 4
 #define CAM_PIN_SIOD 21
 #define CAM_PIN_SIOC 22
 
