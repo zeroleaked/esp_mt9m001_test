@@ -1,0 +1,34 @@
+␛[0;32mI (1273) APP_MAIN: HELLO WORLD␛[0m
+␛[0;32mI (1273) gpio: GPIO[23]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 ␛[0m
+V (1283) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1293) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0x40E␛[0m
+D (1303) intr_alloc: Connected src 22 to int 13 (cpu 0)␛[0m
+␛[0;32mI (1303) cam_hal: cam init ok␛[0m
+D (1313) camera: Enabling XCLK output␛[0m
+D (1313) ledc: LEDC_PWM CHANNEL 0|GPIO 04|Duty 0001|Time 0␛[0m
+D (1323) camera: Initializing SSCB␛[0m
+␛[0;32mI (1323) sccb: pin_sda 21 pin_scl 22␛[0m
+V (1323) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1333) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0xE␛[0m
+D (1343) intr_alloc: Connected src 50 to int 17 (cpu 0)␛[0m
+D (1343) camera: Searching for camera address␛[0m
+␛[0;32mI (1363) camera: Detected camera at address=0x5d␛[0m
+␛[0;32mI (1363) camera: Detected MT9M001 camera␛[0m
+D (1363) MT9M001: MT9M001 Attached␛[0m
+␛[0;32mI (1363) camera: Camera PID=0x8431 VER=0x00 MIDL=0x00 MIDH=0x00␛[0m
+D (1373) camera: Doing SW reset of sensor␛[0m
+D (1393) esp32 ll_cam: in_bytes_per_pixel = 1␛[0m
+␛[0;32mI (1393) esp32 ll_cam: node_size: 3840, nodes_per_line: 1, lines_per_node: 4, dma_half_buffer_min:  3840, dma_half_buffer: 15360, lines_per_half_buffer: 16, dma_buffer_size: 30720, image_size: 153600␛[0m
+␛[0;32mI (1403) cam_hal: buffer_size: 30720, half_buffer_size: 15360, node_buffer_size: 3840, node_cnt: 8, total_cnt: 10␛[0m
+␛[0;32mI (1413) cam_hal: Allocating 153600 Byte frame buffer in OnBoard RAM␛[0m
+V (1423) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1423) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0x40E␛[0m
+D (1433) intr_alloc: Connected src 32 to int 18 (cpu 0)␛[0m
+␛[0;32mI (1443) cam_hal: cam config ok␛[0m
+D (1443) camera: Setting frame size to 480x320␛[0m
+␛[0;32mI (1453) main: Camera Init Ok␛[0m
+V (1453) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): checking args␛[0m
+V (1453) intr_alloc: esp_intr_alloc_intrstatus (cpu 0): Args okay. Resulting flags 0xE␛[0m
+D (1453) intr_alloc: Connected src 36 to int 19 (cpu 0)␛[0m
+␛[0;32mI (1473) main: Taking picture...␛[0m
+␛[0;32mI (2063) main: Picture taken! Its size was: 153600 bytes␛[0m

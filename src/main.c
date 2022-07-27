@@ -40,6 +40,9 @@ static camera_config_t camera_config = {
     .fb_location = CAMERA_FB_IN_DRAM
 };
 
+#define SUBFRAME_WIDTH 480
+#define SUBFRAME_HEIGHT 320
+
 #include "driver/uart.h"
 #include "driver/gpio.h"
 
@@ -47,7 +50,8 @@ static camera_config_t camera_config = {
 
 esp_err_t init_uart() {
     uart_config_t uart_config = {
-        .baud_rate = 115200,
+        // .baud_rate = 115200,
+        .baud_rate = 1000000,
         .data_bits = UART_DATA_8_BITS,
         .parity = UART_PARITY_DISABLE,
         .stop_bits = UART_STOP_BITS_1,
@@ -105,8 +109,6 @@ void app_main() {
     //initialize the camera
     esp_err_t err = esp_camera_init(&camera_config);
 
-    sensor_t *s = esp_camera_sensor_get();
-    s->set_skip4(s, 1);
 
     if (err != ESP_OK)
     {
@@ -119,23 +121,28 @@ void app_main() {
 
     init_uart();
     
+    sensor_t *s = esp_camera_sensor_get();
 
-    ESP_LOGI(TAG, "Taking picture...");
-    camera_fb_t *pic = esp_camera_fb_get();
-    // use pic->buf to access the image
-    ESP_LOGI(TAG, "Picture taken! Its size was: %zu bytes", pic->len);
-    // for (int i=0; i<96; i++) {
-    //     ESP_LOGI(TAG, "0x%02X", pic->buf[i]);
-    // }
-    send_whole_frame_buffer(pic);
+    for (uint16_t rowstart=0xC; rowstart<1024; rowstart+=SUBFRAME_HEIGHT) {
+        s->set_rowstart(s, rowstart);
+        
+        for (uint16_t colstart = 0x14; colstart<1280; colstart+=SUBFRAME_WIDTH) {
+            s->set_colstart(s, colstart);
 
-    uint8_t * jpeg_buffer;
-    size_t jpeg_buffer_len;
-    int err_check = frame2jpg(pic, 100, &jpeg_buffer, &jpeg_buffer_len);
-    ESP_LOGI(TAG, "%d %d", err_check, jpeg_buffer_len);
-    // send_frame_buffer()
-    esp_camera_fb_return(pic);
 
+            ESP_LOGI(TAG, "Taking picture (%d, %d)...", rowstart, colstart);
+            camera_fb_t *pic = esp_camera_fb_get();
+            // use pic->buf to access the image
+            ESP_LOGI(TAG, "Picture taken! Its size was: %zu bytes", pic->len);
+            // for (int i=0; i<96; i++) {
+            //     ESP_LOGI(TAG, "0x%02X", pic->buf[i]);
+            // }
+            send_whole_frame_buffer(pic);
+            esp_camera_fb_return(pic);
+
+        }
+
+    }
 
 
 
